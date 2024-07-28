@@ -1,0 +1,45 @@
+/* src/styles/neonBackgroundHome.css */
+@keyframes moveHorizontal {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 0; }
+  }
+  
+  @keyframes moveVertical {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 1000px; }
+  }
+  
+  .neon-background-home {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: black;
+    overflow: hidden;
+  }
+  
+  .neon-background-home::before,
+  .neon-background-home::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(90deg, rgba(255, 0, 0, 0.5) 50%, transparent 50%),
+                      linear-gradient(90deg, rgba(0, 0, 255, 0.5) 50%, transparent 50%);
+    background-size: 100px 100px;
+    mix-blend-mode: screen;
+    z-index: -1;
+  }
+  
+  .neon-background-home::before {
+    animation: moveHorizontal 10s linear infinite;
+  }
+  
+  .neon-background-home::after {
+    animation: moveVertical 10s linear infinite;
+  }
+  
